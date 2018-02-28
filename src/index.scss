@@ -56,15 +56,6 @@ $vertical-spacing-double: $vertical-spacing * 2;
   padding: $vertical-spacing-third 16px;
 }
 
-.t-issue-tag {
-  background-color: $cyan;
-  border-radius: 16px;
-  color: white;
-  display: inline-block;
-  margin-right: 8px;
-  padding: 8px 16px;
-}
-
 // Buttons
 .t-btn-group > * + * {
   margin-top: $vertical-spacing-third;

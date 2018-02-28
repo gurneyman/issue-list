@@ -1,4 +1,5 @@
 import template from './issue-controls.html';
+import './issue-controls.scss';
 
 class IssueControlsController {
   delete(issueId) {

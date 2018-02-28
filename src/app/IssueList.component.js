@@ -29,7 +29,6 @@ class IssueListController {
 }
 
 export const IssueList = {
-  replace: true,
   template,
   controller: IssueListController
 };

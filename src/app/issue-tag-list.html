@@ -1,0 +1,9 @@
+<div class="t-content t-issue-tag-list">
+    <div>
+        <span ng-repeat="tag in $ctrl.issue.tags" class="t-issue-tag">
+            {{ tag }}
+            <button class="t-issue-tag__delete">x</button>
+        </span>
+    </div>
+    <input ng-show="$ctrl.issue.editMode" class="t-text-input" placeholder="Add new tag" type="text">
+</div>
