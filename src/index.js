@@ -8,4 +8,9 @@ import {IssuesModule} from './app/issues.module';
 angular
   .module('app', [
     IssuesModule
-  ]);
+  ])
+  .filter('unsafe', $sce => {
+    return val => {
+      return $sce.trustAsHtml(val);
+    };
+  });

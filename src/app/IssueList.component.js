@@ -1,33 +1,37 @@
 import template from './issue-list.html';
 
 class IssueListController {
-  constructor($http) {
+  constructor(IssuesService) {
     // 'ngInject';
-    // this.IssuesService = IssuesService;
-    this.$http = $http;
+    this.IssuesService = IssuesService;
   }
   $onInit() {
-    // this.newTodo = {
-    //   title: '',
-    //   selected: false
-    // };
-    // this.todos = [];
-    // this.todoService.getTodos().then(response => this.todos = response);
-    // this.IssuesService
-    //   .getIssues()
-    //   .then(issues => {
-    //     this.issues = issues;
-    //   });
-    this.$http.get('../data/issues.json').then(issues => {
-      this.issues = issues;
+    this.issues = this.IssuesService.getAll();
+  }
+
+  deleteIssue(issueId) {
+    this.issues = this.issues.filter(issue => {
+      return issue.id !== issueId;
     });
+  }
+
+  toggleEdit(issueId) {
+    this.issueId = issueId;
+    const issue = this.issues.find(issue => {
+      return issue.id === issueId;
+    });
+    if (issue.editMode) {
+      issue.editMode = false;
+    } else {
+      issue.editMode = true;
+    }
   }
 }
 
-// IssueListController.$inject = ['IssuesService'];
-IssueListController.$inject = ['$http'];
+IssueListController.$inject = ['IssuesService'];
 
 export const IssueList = {
+  replace: true,
   template,
   controller: IssueListController
 };

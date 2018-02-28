@@ -1,11 +1,26 @@
-<div class="t-section-container">
+<div class="t-issue-list">
     <div class="t-content">
-        <h1>{{ $ctrl.issues }}</h1>
-        <div>
-            testdf
-        </div>
-        <div>
-            test
+        <input ng-model="query" placeholder="Search" type="text">
+        <div ng-repeat="issue in $ctrl.issues | filter:query" class="t-content t-issue">
+            <div ng-show="!issue.editMode" class="t-content t-issue-preview">
+                <h2 class="t-issue-preview__title">{{ issue.title }}</h2>
+                <div ng-bind-html="issue.text | unsafe" class="t-issue-preview__text"></div>
+                <div class="t-issue-tag-list">
+                    <span ng-repeat="tag in issue.tags" class="t-issue-tag">{{ tag }}</span>
+                </div>
+            </div>
+            <div ng-show="issue.editMode" class="t-content t-issue-edit">
+                <input ng-model="issue.title" type="text">
+                <textarea ng-model="issue.text"></textarea>
+            </div>
+            <issue-controls
+                edit-mode="issue.editMode"
+                issue-id="issue.id"
+            ></issue-controls>
+            <div class="t-issue-controls t-btn-group">
+                <button ng-click="toggleEdit(issue.id)" class="t-btn">{{ (editMode) ? 'Save' : 'Edit'}}</button>
+                <button ng-click="deleteIssue(issue.id)" class="t-btn t-btn--delete">{{issue.id}}</button>
+            </div>
         </div>
     </div>
 </div>

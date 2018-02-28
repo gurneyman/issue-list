@@ -1,5 +1,31 @@
+$dark-blue: #081A31;
+$light-grey: #CBD5D6;
+$medium-grey: #9DA7AE;
+$dark-grey: #333332;
+$cyan: #00A2DD;
+$dark-cyan: #006C99;
+$viridian: #00AB91;
+$dark-viridian: #00876E;
+$dark-grey: #333332;
+$vermillion: #F05123;
+$dark-vermillion: #C44826;
+$chartreuse: #B0C636;
+$dark-chartreuse: #849C3A;
+$saffron: #FDB515;
+$dark-saffron: #CE9126;
+$fuschia: #B8258F;
+$dark-fuschia: #7F236E;
+$white: #FFFFFF;
+
 * {
   box-sizing: border-box;
+}
+
+html,
+body {
+  color: $dark-blue;
+  font-family: sans-serif;
+  font-size: 16px;
 }
 
 // Vertical spacing scale
@@ -8,11 +34,6 @@ $vertical-spacing-half: $vertical-spacing / 2;
 $vertical-spacing-third: $vertical-spacing / 3;
 $vertical-spacing-double: $vertical-spacing * 2;
 
-// Basic Vertical Rhythm
-.t-section-container {
-  padding: $vertical-spacing 0;
-}
-
 // Setup lobotomized owl
 .t-content > * {
   margin-bottom: 0;
@@ -20,6 +41,81 @@ $vertical-spacing-double: $vertical-spacing * 2;
 }
 
 .t-content > * + * {
-  border: 1px solid red;
   margin-top: $vertical-spacing-third;
+}
+
+// issue list
+.t-issue-list {
+  margin: $vertical-spacing auto;
+  max-width: 1140px;
+  padding: 0 16px;
+}
+
+.t-issue {
+  border: 1px solid black;
+  padding: $vertical-spacing-third 16px;
+}
+
+.t-issue-tag {
+  background-color: $cyan;
+  border-radius: 16px;
+  color: white;
+  display: inline-block;
+  margin-right: 8px;
+  padding: 8px 16px;
+}
+
+// Buttons
+.t-btn-group > * + * {
+  margin-top: $vertical-spacing-third;
+}
+
+.t-btn {
+  background: $viridian;
+  border: 1px solid $viridian;
+  border-radius: 0;
+  color: $white;
+  display: block;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  padding: 8px 16px;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .3s, border-color .3s;
+  width: 100%;
+}
+
+.t-btn:hover {
+  background: $dark-viridian;
+  border-color: $dark-viridian;
+  color: $white;
+  cursor: pointer;
+}
+
+.t-btn:focus {
+  outline: none;
+}
+
+.t-btn.t-btn--delete {
+    background: tomato;
+    border: 1px solid tomato;
+    color: $white;
+}
+
+.t-btn.t-btn--delete:hover {
+    background: red;
+    border-color: red;
+}
+
+@media screen and (min-width: 768px) {
+  .t-btn-group > * + * {
+    margin-top: 0;
+    margin-left: 15px;
+  }
+
+  .t-btn {
+    display: inline-block;
+    width: unset;
+  }
 }
