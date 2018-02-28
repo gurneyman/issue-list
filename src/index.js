@@ -1,14 +1,11 @@
 import angular from 'angular';
 
-import {hello} from './app/hello';
-import 'angular-ui-router';
-import routesConfig from './routes';
-
+import 'normalize.css';
 import './index.scss';
 
-export const app = 'app';
+import {IssuesModule} from './app/issues.module';
 
 angular
-  .module(app, ['ui.router'])
-  .config(routesConfig)
-  .component('app', hello);
+  .module('app', [
+    IssuesModule
+  ]);

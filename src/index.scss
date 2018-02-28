@@ -1,3 +1,25 @@
-body {
-  background-color: lightgrey;
+* {
+  box-sizing: border-box;
+}
+
+// Vertical spacing scale
+$vertical-spacing: 4rem;
+$vertical-spacing-half: $vertical-spacing / 2;
+$vertical-spacing-third: $vertical-spacing / 3;
+$vertical-spacing-double: $vertical-spacing * 2;
+
+// Basic Vertical Rhythm
+.t-section-container {
+  padding: $vertical-spacing 0;
+}
+
+// Setup lobotomized owl
+.t-content > * {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.t-content > * + * {
+  border: 1px solid red;
+  margin-top: $vertical-spacing-third;
 }

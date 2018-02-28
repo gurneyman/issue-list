@@ -1,0 +1,12 @@
+[{
+    "id" : "1",
+    "title" : "Issue 1",
+    "text" : "<p>There's an issue.</p><h2>Here's more html</h2>",
+    "tags" : ["bug", "serious"]
+}, {
+    "id" : "2",
+    "title" : "Issue 2",
+    "text" : "<p>There's an issue here too.</p><h2>Here's more html</h2>",
+    "tags" : ["bug", "low"]
+}
+]
