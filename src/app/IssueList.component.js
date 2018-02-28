@@ -9,13 +9,13 @@ class IssueListController {
     this.issues = this.IssuesService.getAll();
   }
 
-  deleteIssue(issueId) {
+  deleteIssue({issueId}) {
     this.issues = this.issues.filter(issue => {
       return issue.id !== issueId;
     });
   }
 
-  toggleEdit(issueId) {
+  toggleEdit({issueId}) {
     this.issueId = issueId;
     const issue = this.issues.find(issue => {
       return issue.id === issueId;
@@ -27,8 +27,6 @@ class IssueListController {
     }
   }
 }
-
-IssueListController.$inject = ['IssuesService'];
 
 export const IssueList = {
   replace: true,

@@ -14,13 +14,11 @@
                 <textarea ng-model="issue.text"></textarea>
             </div>
             <issue-controls
+                delete-issue="$ctrl.deleteIssue($event)"
                 edit-mode="issue.editMode"
                 issue-id="issue.id"
+                toggle-edit="$ctrl.toggleEdit($event)"
             ></issue-controls>
-            <div class="t-issue-controls t-btn-group">
-                <button ng-click="toggleEdit(issue.id)" class="t-btn">{{ (editMode) ? 'Save' : 'Edit'}}</button>
-                <button ng-click="deleteIssue(issue.id)" class="t-btn t-btn--delete">{{issue.id}}</button>
-            </div>
         </div>
     </div>
 </div>

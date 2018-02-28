@@ -1,25 +1,29 @@
 import template from './issue-controls.html';
 
 class IssueControlsController {
-  constructor() {
-    this.hi = 'hi';
+  delete(issueId) {
+    this.deleteIssue({
+      $event: {
+        issueId
+      }
+    });
   }
 
-  $onInit() {
-    this.delete = this.issueListCtrl.deleteIssue.bind(this.issueListCtrl);
-    this.toggle = this.issueListCtrl.toggleEdit.bind(this.issueListCtrl);
+  toggle(issueId) {
+    this.toggleEdit({
+      $event: {
+        issueId
+      }
+    });
   }
 }
 
-IssueControlsController.$inject = [];
-
 export const issueControls = {
   bindings: {
+    deleteIssue: '&',
     editMode: '<',
-    issueId: '<'
-  },
-  require: {
-    issueListCtrl: '^view'
+    issueId: '<',
+    toggleEdit: '&'
   },
   template,
   controller: IssueControlsController
