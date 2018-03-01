@@ -1,8 +1,9 @@
+@import '../colors';
 issue-tag-list {
   display: block;
 }
 
-.t-issue-tag {
+.t-tag {
     background-color: black;
     border-radius: 16px;
     border-top-right-radius: 0;
@@ -10,14 +11,43 @@ issue-tag-list {
     color: white;
     display: inline-block;
     margin-right: 8px;
-    padding: 8px 32px 8px 16px;
-    position: relative;
+    padding: 8px 8px 8px 16px;
+    white-space: nowrap;
 }
 
-.t-issue-tag__delete {
-    height: 15px;
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 15px;
+.t-tag__delete {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 5px;
+    transition: color .3s ease-out;
+    text-align: center;
+}
+
+.t-tag__delete:hover {
+    color: tomato;
+    cursor: pointer;
+}
+
+
+// tag adder
+.t-tag-adder {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.t-tag-adder__input {
+    height: 42px;
+    vertical-align: middle;
+}
+
+.t-tag-adder__btn {
+    height: 42px;
+    margin-left: -5px;
+    vertical-align: top;
+}
+.t-tag,
+.t-tag-adder__input,
+.t-tag-adder__btn {
+    height: 45px;
+    vertical-align: middle;
 }

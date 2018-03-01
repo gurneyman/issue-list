@@ -1,6 +1,11 @@
 <div class="t-issue-list">
     <div class="t-content">
-        <input ng-model="query" placeholder="Search" type="text">
+        <input 
+            ng-model="query" 
+            placeholder="Search" 
+            type="text"
+            class="t-input-text t-input-text--list-search"
+        >
         <div ng-repeat="issue in $ctrl.issues | filter:query" class="t-content t-issue">
             <issue-preview 
                 ng-show="!issue.editMode" 
