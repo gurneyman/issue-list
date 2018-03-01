@@ -6,8 +6,8 @@ issue-tag-list {
 .t-tag {
     background-color: black;
     border-radius: 16px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    // border-top-right-radius: 0;
+    // border-bottom-right-radius: 0;
     color: white;
     display: inline-block;
     margin-right: 8px;
@@ -50,4 +50,22 @@ issue-tag-list {
 .t-tag-adder__btn {
     height: 45px;
     vertical-align: middle;
+}
+
+.t-tag-filter__choice,
+.t-tag-filter__clear {
+    cursor: pointer;
+    padding: 16px 24px;
+    height: unset;
+    border-radius: 16px;
+    transition: background-color .3s;
+}
+.t-tag-filter__choice:hover,
+.t-tag-filter__clear:hover,
+.t-tag-filter--active {
+    background-color: $cyan;
+}
+
+.t-tag-filter__clear {
+    background-color: tomato;
 }

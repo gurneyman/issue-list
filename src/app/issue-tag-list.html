@@ -1,12 +1,15 @@
 <div class="t-content t-tag-list">
     <div>
-        <span ng-repeat="tag in $ctrl.issue.tags" class="t-tag">
+        <span ng-show="!$ctrl.issue.editMode" ng-repeat="tag in $ctrl.issue.tags" class="t-tag t-tag-filter__choice">
+            <span ng-click="$ctrl.chooseFilter(tag)" class="t-tag__content">{{ tag }}</span>
+        </span>
+        <span ng-show="$ctrl.issue.editMode" ng-repeat="tag in $ctrl.issue.backup.tags" class="t-tag">
             <span class="t-tag__content">{{ tag }}</span>
-            <span class="t-tag__delete">x</span>
+            <span ng-click="$ctrl.remove(tag)" class="t-tag__delete">x</span>
         </span>
         <div ng-show="$ctrl.issue.editMode" class="t-tag-adder">
-            <input  class="t-input-text t-tag-adder__input" placeholder="Add new tag" type="text">
-            <button class="t-btn t-tag-adder__btn">+</button>
+            <input ng-model="newTag" class="t-input-text t-tag-adder__input" placeholder="Add new tag" type="text">
+            <button ng-click="$ctrl.add(newTag)" class="t-btn t-tag-adder__btn">+</button>
         </div>
     </div>
 </div>

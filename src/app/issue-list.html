@@ -6,7 +6,19 @@
             type="text"
             class="t-input-text t-input-text--list-search"
         >
-        <div ng-repeat="issue in $ctrl.issues | filter:query" class="t-content t-issue">
+        <span  
+            ng-repeat="tag in $ctrl.allTags" 
+            ng-click="$ctrl.selectFilter(tag)" 
+            ng-class="{ 't-tag-filter--active' : tag === $ctrl.selectedTag }" 
+            class="t-tag t-tag-filter__choice"
+        >{{tag}}
+        </span>
+        <span 
+            ng-click="$ctrl.clearTagFilter()" 
+            class="t-tag t-tag-filter__clear"
+        >Clear Filter
+        </span>
+        <div ng-repeat="issue in $ctrl.issues" ng-if="$ctrl.filterByTags(issue, $ctrl.selectedTag)" class="t-content t-issue">
             <issue-preview 
                 ng-show="!issue.editMode" 
                 issue="issue"
@@ -17,6 +29,7 @@
             ></issue-edit>
             <issue-tag-list
                 issue="issue"
+                filter-handler="$ctrl.tagEventHandler($event)"
             ></issue-tag-list>
             <issue-controls
                 cancel-handler="$ctrl.cancelEdit($event)"
