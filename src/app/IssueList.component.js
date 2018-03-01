@@ -23,6 +23,13 @@ class IssueListController {
       this.allTags = getUniqTags(issues);
       this.filterByTags.bind(this);
     });
+    this.newIssue = {
+      id: '',
+      title: '',
+      text: '',
+      tags: [],
+      editMode: true
+    };
   }
 
   cancelEdit({issueId}) {
@@ -67,6 +74,29 @@ class IssueListController {
   tagEventHandler({tag}) {
     this.clearTagFilter();
     this.selectFilter(tag);
+  }
+
+  addTag(tag) {
+    this.newIssue.tags.push(tag);
+    this.newTag = '';
+  }
+
+  removeTag(tagToRemove) {
+    this.newIssue.tags = this.newIssue.tags.filter(tag => {
+      return tag !== tagToRemove;
+    });
+  }
+
+  saveNew() {
+    this.newIssue.editMode = false;
+    this.issues.push(this.newIssue);
+    this.newIssue = {
+      id: '',
+      title: '',
+      text: '',
+      tags: [],
+      editMode: true
+    };
   }
 
   updateIssue({issueId}) {

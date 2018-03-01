@@ -1,11 +1,13 @@
 <div class="t-issue-list">
     <div class="t-content">
-        <input 
+        <h1>Issue List</h1>
+        <h2>Filter by Tag</h2>
+        <!-- <input 
             ng-model="query" 
             placeholder="Search" 
             type="text"
             class="t-input-text t-input-text--list-search"
-        >
+        > -->
         <span  
             ng-repeat="tag in $ctrl.allTags" 
             ng-click="$ctrl.selectFilter(tag)" 
@@ -39,6 +41,32 @@
                 issue-id="issue.id"
                 update-handler="$ctrl.updateIssue($event)"
             ></issue-controls>
+        </div>
+        <div class="t-content t-issue">
+            <div class="t-content t-issue-edit">
+                <h2>Add a new issue</h2>
+                <input 
+                    ng-model="$ctrl.newIssue.title"
+                    class="t-input-text t-u-full-width t-issue-edit__title"
+                    placeholder="Enter title"
+                    type="text">
+                <textarea 
+                    ng-model="$ctrl.newIssue.text"
+                    placeholder="Enter text (HTML OK)"
+                    class="t-input-text t-u-full-width t-issue-edit__text-area"
+                ></textarea>
+                <span ng-repeat="tag in $ctrl.newIssue.tags" class="t-tag">
+                    <span class="t-tag__content">{{ tag }}</span>
+                    <span ng-click="$ctrl.removeTag(tag)" class="t-tag__delete">x</span>
+                </span>
+                <br>
+                <div class="t-tag-adder">
+                    <input ng-model="newTag" class="t-input-text t-tag-adder__input" placeholder="Add new tag" type="text">
+                    <button ng-click="$ctrl.addTag(newTag)" class="t-btn t-tag-adder__btn">+</button>
+                </div>
+                <br>
+                <button ng-click="$ctrl.saveNew()" class="t-btn">Save New</button>
+            </div>
         </div>
     </div>
 </div>
