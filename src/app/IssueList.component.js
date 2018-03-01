@@ -110,6 +110,8 @@ class IssueListController {
   }
 }
 
+IssueListController.$inject = ['IssuesService'];
+
 export const IssueList = {
   template,
   controller: IssueListController
