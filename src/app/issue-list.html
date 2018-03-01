@@ -13,16 +13,18 @@
             ></issue-preview>
             <issue-edit 
                 ng-show="issue.editMode" 
-                issue="issue"
+                issue="issue.backup"
             ></issue-edit>
             <issue-tag-list
                 issue="issue"
             ></issue-tag-list>
             <issue-controls
-                delete-issue="$ctrl.deleteIssue($event)"
+                cancel-handler="$ctrl.cancelEdit($event)"
+                delete-handler="$ctrl.deleteIssue($event)"
+                edit-handler="$ctrl.editIssue($event)"
                 edit-mode="issue.editMode"
                 issue-id="issue.id"
-                toggle-edit="$ctrl.toggleEdit($event)"
+                update-handler="$ctrl.updateIssue($event)"
             ></issue-controls>
         </div>
     </div>

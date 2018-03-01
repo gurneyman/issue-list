@@ -1,6 +1,8 @@
 <div class="t-issue-controls t-btn-group">
-    <button ng-click="$ctrl.toggle($ctrl.issueId)" class="t-btn">{{ ($ctrl.editMode) ? 'Save' : 'Edit'}}</button>
-    <button ng-click="$ctrl.delete($ctrl.issueId)" class="t-btn t-btn--delete">Delete</button>
+    <button ng-if="!$ctrl.editMode" ng-click="$ctrl.edit($ctrl.issueId)" class="t-btn">Edit</button>
+    <button ng-if="$ctrl.editMode" ng-click="$ctrl.save($ctrl.issueId)" class="t-btn">Save</button>
+    <button ng-if="$ctrl.editMode" ng-click="$ctrl.delete($ctrl.issueId)" class="t-btn t-btn--delete">Delete</button>
+    <button ng-if="$ctrl.editMode" ng-click="$ctrl.cancel($ctrl.issueId)" class="t-btn t-btn--cancel">Cancel</button>
 </div>
 
 

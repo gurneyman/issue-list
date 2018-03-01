@@ -2,29 +2,38 @@ import template from './issue-controls.html';
 import './issue-controls.scss';
 
 class IssueControlsController {
-  delete(issueId) {
-    this.deleteIssue({
+  $onInit() {
+    this.event = {
       $event: {
-        issueId
+        issueId: this.issueId
       }
-    });
+    };
   }
 
-  toggle(issueId) {
-    this.toggleEdit({
-      $event: {
-        issueId
-      }
-    });
+  cancel() {
+    this.cancelHandler(this.event);
+  }
+
+  delete() {
+    this.deleteHandler(this.event);
+  }
+
+  edit() {
+    this.editHandler(this.event);
+  }
+  save() {
+    this.updateHandler(this.event);
   }
 }
 
 export const issueControls = {
   bindings: {
-    deleteIssue: '&',
+    cancelHandler: '&',
+    deleteHandler: '&',
+    editHandler: '&',
     editMode: '<',
     issueId: '<',
-    toggleEdit: '&'
+    updateHandler: '&'
   },
   template,
   controller: IssueControlsController
