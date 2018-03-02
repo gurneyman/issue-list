@@ -31,25 +31,25 @@ issue-tag-list {
 
 // tag adder
 .t-tag-adder {
-    display: inline-block;
     white-space: nowrap;
 }
 
 .t-tag-adder__input {
-    height: 42px;
+    width: calc(100% - 45px);
     vertical-align: middle;
 }
 
-.t-tag-adder__btn {
-    height: 42px;
-    margin-left: -5px;
-    vertical-align: top;
-}
 .t-tag,
 .t-tag-adder__input,
 .t-tag-adder__btn {
     height: 45px;
     vertical-align: middle;
+}
+
+.t-tag-adder__btn {
+    display: inline-block;
+    margin-left: -5px;
+    width: 45px;
 }
 
 .t-tag-filter__choice,
@@ -68,4 +68,10 @@ issue-tag-list {
 
 .t-tag-filter__clear {
     background-color: tomato;
+}
+
+@media all and (min-width: 768px) {
+    .t-tag-adder {
+        display: inline-block;
+    }
 }
